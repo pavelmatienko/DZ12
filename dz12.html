@@ -8,33 +8,33 @@
 <body>
     <script>
             class Hamburger {
-            constructor(size) {
-                this.size = size;
-                this.toppings = [];
-            }
-            addTopping(topping) {
-                if (!this.toppings.includes(topping)) {
-                    return this.toppings.push(topping);
-                };
-            }
-            getToppings() {
-                return this.toppings;
-            }
-            getSize() {
-                return this.size;
-            }
-            getPrice() {
-                const priceArr = this.toppings.map(i => Hamburger.TOPPINGS[i].price);
-                priceArr.push(Hamburger.SIZES[this.size].price);
-                let price = priceArr.reduce((acc, prices) => acc + prices, 0);
-                return price;
-            }
-            getCalories() {
-                const caloriesArr = this.toppings.map(i => Hamburger.TOPPINGS[i].calories);
-                caloriesArr.push(Hamburger.SIZES[this.size].calories);
-                let calories = caloriesArr.reduce((acc, itemcalories) => acc + itemcalories, 0);
-                return calories;
-            }
+                constructor(size) {
+                    this.size = size;
+                    this.toppings = [];
+                }
+                addTopping(topping) {
+                    if (!this.toppings.includes(topping)) {
+                        return this.toppings.push(topping);
+                    };
+                }
+                getToppings() {
+                    return this.toppings;
+                }
+                getSize() {
+                    return this.size;
+                }
+                getPrice() {
+                    const priceArr = this.toppings.map(i => Hamburger.TOPPINGS[i].price);
+                    priceArr.push(Hamburger.SIZES[this.size].price);
+                    let price = priceArr.reduce((acc, prices) => acc + prices, 0);
+                    return price;
+                }
+                getCalories() {
+                    const caloriesArr = this.toppings.map(i => Hamburger.TOPPINGS[i].calories);
+                    caloriesArr.push(Hamburger.SIZES[this.size].calories);
+                    let calories = caloriesArr.reduce((acc, itemcalories) => acc + itemcalories, 0);
+                    return calories;
+                }
             };
             Hamburger.SIZE_SMALL = 'SIZE_SMALL';
             Hamburger.SIZE_AVEREGE = 'SIZE_AVEREGE';
@@ -83,8 +83,12 @@
             };
             // Маленький гамбургер
             const hamburger = new Hamburger (Hamburger.SIZE_SMALL);
+            // console.log("Price hamburger without sauce: " + hamburger.getPrice());
+            // console.log("Callories hamburger without sauce: " + hamburger.getCalories());
             // добавка из майонеза
             hamburger.addTopping(Hamburger.TOPPING_MAYO);
+            // console.log("Price with sauce: " + hamburger.getPrice());
+            // console.log("Callories with sauce: " + hamburger.getCalories());
             // добавка картошки
             hamburger.addTopping(Hamburger.TOPPING_POTATO);
             console.log("Price with sauce: " + hamburger.getPrice());
